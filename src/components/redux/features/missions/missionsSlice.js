@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
@@ -8,20 +9,19 @@ export const getMissionsAsync = createAsyncThunk(
   'mission/getmissions',
   async () => {
     const resp = await axios.get(missionsUrl);
-    console.log(resp.data);
-    return resp.data;
+    const results = resp.data.map(({ mission_id, mission_name, description }) => ({
+      mission_id,
+      mission_name,
+      description,
+    }));
+    return results;
   },
 );
 
 const missionsSlice = createSlice({
   name: 'missions',
   initialState: {
-    missions: [
-      {
-        id: 'alice',
-        name: 'Grace',
-      },
-    ],
+    missions: [],
   },
   reducers: {
     addMission: (state, actions) => {
