@@ -9,8 +9,11 @@ export const getRocketsAsync = createAsyncThunk(
   'mission/getRockets',
   async () => {
     const resp = await axios.get(rocketsUrl);
-    const results = resp.data.map(({ id, name, flickr_images }) => ({ id, name, flickr_images }));
-    console.log('Hmm: ', results);
+    const results = resp.data.map(({
+      id, name, flickr_images, description,
+    }) => ({
+      id, name, flickr_images, description,
+    }));
     return results;
   },
 );
@@ -32,6 +35,24 @@ const rocketsSlice = createSlice({
     //     (mission) => mission.id !== missionToCancel,
     //   );
     // },
+    reserveRocket: (state, actions) => {
+      const idToReserve = actions.payload;
+      const newState = state.rockets.map((rocket) => {
+        if (rocket.id !== idToReserve) return rocket;
+        console.log({ ...rocket, reserved: true });
+        return { ...rocket, reserved: true };
+      });
+      return { ...state, rockets: newState };
+    },
+    cancelRocketReservation: (state, actions) => {
+      const idToReserve = actions.payload;
+      const newState = state.rockets.map((rocket) => {
+        if (rocket.id !== idToReserve) return rocket;
+        console.log({ ...rocket, reserved: false });
+        return { ...rocket, reserved: false };
+      });
+      return { ...state, rockets: newState };
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getRocketsAsync.fulfilled, (state, actions) => {

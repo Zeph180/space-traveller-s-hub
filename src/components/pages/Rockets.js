@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRocketsAsync } from '../redux/features/rockets/rocketsSlice';
+import { getRocketsAsync, rocketsActions } from '../redux/features/rockets/rocketsSlice';
 
 export default function Rockets() {
   const { rockets } = useSelector((state) => state.rockets);
@@ -15,8 +16,43 @@ export default function Rockets() {
     <>
       <p>Rockets</p>
       {rockets.map((rocket) => (
-        <p key={rocket.rocket_id}>{rocket.name}</p>
+        <>
+          <p key={rocket.rocket_id}>{rocket.name}</p>
+          <Rocket rocket={rocket} />
+        </>
       ))}
     </>
   );
 }
+
+const Rocket = ({ rocket }) => {
+  const dispatch = useDispatch();
+  const handleReservation = (e) => {
+    const { id } = e.target;
+    dispatch(rocketsActions.reserveRocket(id));
+  };
+
+  const handleCancelReservation = (e) => {
+    const { id } = e.target;
+    dispatch(rocketsActions.cancelRocketReservation(id));
+  };
+
+  return (
+    <article>
+      <div className="img-cont">
+        <img alt={rocket.name} src={rocket.flickr_images} />
+      </div>
+      <div>
+        <h3>{rocket.name}</h3>
+        <p>{rocket.description}</p>
+        <>
+          {
+            rocket.reserved !== true
+              ? <button onClick={handleReservation} id={rocket.id} type="button">Reserve rocket</button>
+              : <button onClick={handleCancelReservation} id={rocket.id} type="button">Cancel reservation</button>
+          }
+        </>
+      </div>
+    </article>
+  );
+};
