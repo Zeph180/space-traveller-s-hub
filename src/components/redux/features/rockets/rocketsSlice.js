@@ -24,22 +24,10 @@ const rocketsSlice = createSlice({
     rockets: [],
   },
   reducers: {
-    // addProfile: (state, actions) => {
-    //   const profileData = actions.payload;
-    //   state.rockets.push(missionsData);
-    // },
-    // cancelProfile: (state, actions) => {
-    //   const tempState = state;
-    //   const missionToCancel = actions.payload;
-    //   tempState.missions = tempState.missions.filter(
-    //     (mission) => mission.id !== missionToCancel,
-    //   );
-    // },
     reserveRocket: (state, actions) => {
       const idToReserve = actions.payload;
       const newState = state.rockets.map((rocket) => {
         if (rocket.id !== idToReserve) return rocket;
-        console.log({ ...rocket, reserved: true });
         return { ...rocket, reserved: true };
       });
       return { ...state, rockets: newState };
@@ -48,7 +36,6 @@ const rocketsSlice = createSlice({
       const idToReserve = actions.payload;
       const newState = state.rockets.map((rocket) => {
         if (rocket.id !== idToReserve) return rocket;
-        console.log({ ...rocket, reserved: false });
         return { ...rocket, reserved: false };
       });
       return { ...state, rockets: newState };
