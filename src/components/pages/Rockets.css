@@ -55,3 +55,8 @@
   padding: var(--five);
   border-radius: var(--five);
 }
+
+.cancel-btn {
+  padding: var(--five);
+  border-radius: var(--five);
+}
