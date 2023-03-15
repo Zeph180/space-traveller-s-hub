@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from 'react';
+import './Rockets.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRocketsAsync, rocketsActions } from '../redux/features/rockets/rocketsSlice';
 
@@ -10,17 +11,16 @@ export default function Rockets() {
     dispatch(getRocketsAsync());
   }, [dispatch]);
   return (
-    <>
-      <p>Rockets</p>
+    <section className="rockets-sec">
       {rockets.map((rocket) => (
         <>
-          <p key={rocket.rocket_id}>{rocket.name}</p>
           <Rocket rocket={rocket} />
         </>
       ))}
-    </>
+    </section>
   );
 }
+
 const Rocket = ({ rocket }) => {
   const dispatch = useDispatch();
   const handleReservation = (e) => {
@@ -32,23 +32,23 @@ const Rocket = ({ rocket }) => {
     dispatch(rocketsActions.cancelRocketReservation(id));
   };
   return (
-    <article>
+    <article className="rocket-cont">
       <div className="img-cont">
-        <img alt={rocket.name} src={rocket.flickr_images} />
+        <img alt={rocket.name} src={rocket.flickr_images} className="rocket-img" />
       </div>
-      <div>
-        <h3>{rocket.name}</h3>
-        <p>
+      <div className="about-rocket-cont">
+        <h3 className="rocket-name">{rocket.name}</h3>
+        <p className="rocket-desc">
           {
-            rocket.reserved && <span>reserved</span>
+            rocket.reserved && <span className="badge">reserved</span>
           }
           {rocket.description}
         </p>
         <>
           {
             rocket.reserved !== true
-              ? <button onClick={handleReservation} id={rocket.id} type="button">Reserve rocket</button>
-              : <button onClick={handleCancelReservation} id={rocket.id} type="button">Cancel reservation</button>
+              ? <button onClick={handleReservation} id={rocket.id} type="button" className="reserve-btn">Reserve rocket</button>
+              : <button onClick={handleCancelReservation} id={rocket.id} type="button" className="cancel-btn">Cancel reservation</button>
           }
         </>
       </div>
