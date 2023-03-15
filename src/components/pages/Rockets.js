@@ -5,13 +5,10 @@ import { getRocketsAsync, rocketsActions } from '../redux/features/rockets/rocke
 
 export default function Rockets() {
   const { rockets } = useSelector((state) => state.rockets);
-
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getRocketsAsync());
   }, [dispatch]);
-
   return (
     <>
       <p>Rockets</p>
@@ -24,19 +21,16 @@ export default function Rockets() {
     </>
   );
 }
-
 const Rocket = ({ rocket }) => {
   const dispatch = useDispatch();
   const handleReservation = (e) => {
     const { id } = e.target;
     dispatch(rocketsActions.reserveRocket(id));
   };
-
   const handleCancelReservation = (e) => {
     const { id } = e.target;
     dispatch(rocketsActions.cancelRocketReservation(id));
   };
-
   return (
     <article>
       <div className="img-cont">
@@ -44,7 +38,12 @@ const Rocket = ({ rocket }) => {
       </div>
       <div>
         <h3>{rocket.name}</h3>
-        <p>{rocket.description}</p>
+        <p>
+          {
+            rocket.reserved && <span>reserved</span>
+          }
+          {rocket.description}
+        </p>
         <>
           {
             rocket.reserved !== true
