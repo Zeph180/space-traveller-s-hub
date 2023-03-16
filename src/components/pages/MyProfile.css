@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  flex-direction:"row";
+  flex-direction: row;
   width: 80%;
   margin-left: 10%;
   margin-top: var(--tenPx);
@@ -11,7 +11,8 @@
   width: 48%;
 }
 
-.my-rocket, .my-mission {
+.my-rocket,
+.my-mission {
   border: 1px solid;
   padding: 20px;
   margin: var(--zero);

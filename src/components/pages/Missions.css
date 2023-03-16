@@ -6,6 +6,7 @@
 .missions-cont > :nth-child(even) {
   background-color: lightgray;
 }
+
 .mission-header {
   box-sizing: border-box;
   width: 15.3%;
@@ -60,13 +61,15 @@ h3 {
   width: 13%;
 }
 
-.buttons-cont, .members-cont {
+.buttons-cont,
+.members-cont {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.join-btn , .leave-btn{
+.join-btn,
+.leave-btn {
   padding: 5px;
   font-size: 16px;
   border-radius: 5px;
@@ -79,7 +82,8 @@ h3 {
   border-color: red;
 }
 
-.member-badge, .not-member-badge {
+.member-badge,
+.not-member-badge {
   color: var(--white);
   padding: var(--zero) 3px;
   border-radius: var(--five);

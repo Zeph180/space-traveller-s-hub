@@ -3,12 +3,10 @@
 import { useEffect } from 'react';
 import './Missions.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { Table } from 'react-bootstrap';
 import {
   getMissionsAsync,
   missionsActions,
 } from '../redux/features/missions/missionsSlice';
-import './Missions.css';
 
 const Missions = () => {
   const { missions } = useSelector((state) => state.missions);
@@ -28,7 +26,7 @@ const Missions = () => {
       {missions.map((mission) => (
         <>
           <Mission mission={mission} />
-        </div>
+        </>
       ))}
     </section>
   );

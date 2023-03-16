@@ -1,25 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MyProfile should render correctly 1`] = `
-Array [
-  <p>
-    My profile
-  </p>,
+<section
+  class="container"
+>
   <div>
-    <p>
-      Mission 1
-    </p>
-    <p>
-      Mission 3
-    </p>
-  </div>,
+    <h3
+      class="cat-headers"
+    >
+      My Missions
+    </h3>
+    <div
+      class="toper"
+    >
+      <p
+        class="my-mission"
+      >
+        Mission 1
+      </p>
+      <p
+        class="my-mission"
+      >
+        Mission 3
+      </p>
+    </div>
+  </div>
   <div>
-    <p>
-      Rocket 2
-    </p>
-    <p>
-      Rocket 3
-    </p>
-  </div>,
-]
+    <h3
+      class="cat-headers"
+    >
+      My Rockets
+    </h3>
+    <div
+      class="toper"
+    >
+      <p
+        class="my-rocket"
+      >
+        Rocket 1
+      </p>
+      <p
+        class="my-rocket"
+      >
+        Rocket 3
+      </p>
+    </div>
+  </div>
+</section>
 `;

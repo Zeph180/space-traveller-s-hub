@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Missions component renders correctly 1`] = `
+<section
+  className="missions-cont"
+>
+  <article
+    className="mission"
+  >
+    <h3
+      className="mission-header"
+    >
+      Mission
+    </h3>
+    <p
+      className="desc-header"
+    >
+      Description
+    </p>
+    <p
+      className="status-desc"
+    >
+      Status
+    </p>
+  </article>
+</section>
+`;
+
 exports[`Missions component should match the snapshot 1`] = `
 <section
   className="mission-sec"
