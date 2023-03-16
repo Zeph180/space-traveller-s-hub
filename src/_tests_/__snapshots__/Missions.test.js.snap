@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Missions component should match the snapshot 1`] = `
+<section
+  className="mission-sec"
+>
+  <p>
+    Missions
+  </p>
+  <div>
+    <h3
+      className="mission-name"
+    >
+      Mission 1
+    </h3>
+    <table
+      className="table"
+    >
+      <thead>
+        <tr>
+          <th>
+            Mission
+          </th>
+          <th>
+            Description
+          </th>
+          <th>
+            Status
+          </th>
+          <th>
+             
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <p
+              className="description"
+            >
+              Description 1
+            </p>
+          </td>
+          <td>
+            <span
+              className="no-member"
+            >
+              Not a member
+            </span>
+          </td>
+          <td>
+            <button
+              className="join-btn"
+              id="mission1"
+              onClick={[Function]}
+              type="button"
+            >
+              Join Mission
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h3
+      className="mission-name"
+    >
+      Mission 2
+    </h3>
+    <table
+      className="table"
+    >
+      <thead>
+        <tr>
+          <th>
+            Mission
+          </th>
+          <th>
+            Description
+          </th>
+          <th>
+            Status
+          </th>
+          <th>
+             
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <p
+              className="description"
+            >
+              Description 2
+            </p>
+          </td>
+          <td>
+            <span
+              className="member"
+            >
+              Active member
+            </span>
+          </td>
+          <td>
+            <button
+              className="leave-btn"
+              id="mission2"
+              onClick={[Function]}
+              type="button"
+            >
+              Leave Mission
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+`;

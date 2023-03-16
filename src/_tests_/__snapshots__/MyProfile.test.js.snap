@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyProfile should render correctly 1`] = `
+Array [
+  <p>
+    My profile
+  </p>,
+  <div>
+    <p>
+      Mission 1
+    </p>
+    <p>
+      Mission 3
+    </p>
+  </div>,
+  <div>
+    <p>
+      Rocket 2
+    </p>
+    <p>
+      Rocket 3
+    </p>
+  </div>,
+]
+`;

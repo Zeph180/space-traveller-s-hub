@@ -1,12 +1,15 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/prop-types */
 import { useEffect } from 'react';
+import './Missions.css';
 import { useSelector, useDispatch } from 'react-redux';
+import { Table } from 'react-bootstrap';
 import {
   getMissionsAsync,
   missionsActions,
 } from '../redux/features/missions/missionsSlice';
 
-export default function Missions() {
+const Missions = () => {
   const { missions } = useSelector((state) => state.missions);
   const dispatch = useDispatch();
 
@@ -15,17 +18,16 @@ export default function Missions() {
   }, [dispatch]);
 
   return (
-    <>
-      <p>Missions</p>
+    <section className="mission-sec">
+
       {missions.map((mission) => (
-        <>
-          <p key={mission.mission_id}>{mission.mission_name}</p>
+        <div key={mission.mission_id}>
           <Mission mission={mission} />
-        </>
+        </div>
       ))}
-    </>
+    </section>
   );
-}
+};
 
 const Mission = ({ mission }) => {
   const dispatch = useDispatch();
@@ -41,36 +43,50 @@ const Mission = ({ mission }) => {
   };
 
   return (
-    <article>
-      <div>
-        <h3>{mission.mission_name}</h3>
-        <p>{mission.description}</p>
-        <div>
-          {mission.joined === true ? (
-            <span>Active member</span>
-          ) : (
-            <span>Not a member</span>
-          )}
-        </div>
-
-        {mission.joined === true ? (
-          <button
-            onClick={handleLeaveMission}
-            id={mission.mission_id}
-            type="button"
-          >
-            Leave Mission
-          </button>
-        ) : (
-          <button
-            onClick={handleJoinMission}
-            id={mission.mission_id}
-            type="button"
-          >
-            Join Mission
-          </button>
-        )}
-      </div>
-    </article>
+    <Table>
+      <thead>
+        <tr>
+          <th>Mission</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><p className="description">{mission.description}</p></td>
+          <td>
+            {mission.joined === true ? (
+              <span className="member">Active member</span>
+            ) : (
+              <span className="no-member">Not a member</span>
+            )}
+          </td>
+          <td>
+            {mission.joined === true ? (
+              <button
+                onClick={handleLeaveMission}
+                id={mission.mission_id}
+                type="button"
+                className="leave-btn"
+              >
+                Leave Mission
+              </button>
+            ) : (
+              <button
+                onClick={handleJoinMission}
+                id={mission.mission_id}
+                type="button"
+                className="join-btn"
+              >
+                Join Mission
+              </button>
+            )}
+          </td>
+        </tr>
+      </tbody>
+    </Table>
   );
 };
+
+export default Missions;
