@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction:"row";
+  width: 80%;
+  margin-left: 10%;
+  margin-top: var(--tenPx);
+  justify-content: space-between;
+}
+
+.container > * {
+  width: 48%;
+}
+
+.my-rocket, .my-mission {
+  border: 1px solid;
+  padding: 20px;
+  margin: var(--zero);
+}
+
+.toper :nth-child(1) {
+  border-top-right-radius: var(--tenPx);
+  border-top-left-radius: var(--tenPx);
+}
+
+.cat-headers {
+  width: 100%;
+  font-size: 25px;
+  padding: var(--tenPx);
+}

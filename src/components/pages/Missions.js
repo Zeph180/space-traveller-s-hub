@@ -5,6 +5,7 @@ import {
   getMissionsAsync,
   missionsActions,
 } from '../redux/features/missions/missionsSlice';
+import './Missions.css';
 
 export default function Missions() {
   const { missions } = useSelector((state) => state.missions);
@@ -15,15 +16,18 @@ export default function Missions() {
   }, [dispatch]);
 
   return (
-    <>
-      <p>Missions</p>
+    <section className="missions-cont">
+      <article className="mission">
+        <h3 className="mission-header">Mission</h3>
+        <p className="desc-header">Description</p>
+        <p className="status-desc">Status</p>
+      </article>
       {missions.map((mission) => (
         <>
-          <p key={mission.mission_id}>{mission.mission_name}</p>
           <Mission mission={mission} />
         </>
       ))}
-    </>
+    </section>
   );
 }
 
@@ -41,23 +45,23 @@ const Mission = ({ mission }) => {
   };
 
   return (
-    <article>
-      <div>
-        <h3>{mission.mission_name}</h3>
-        <p>{mission.description}</p>
-        <div>
-          {mission.joined === true ? (
-            <span>Active member</span>
-          ) : (
-            <span>Not a member</span>
-          )}
-        </div>
-
+    <article className="mission">
+      <h3>{mission.mission_name}</h3>
+      <p className="mission-desc">{mission.description}</p>
+      <div className="members-cont">
+        {mission.joined === true ? (
+          <span className="member-badge">Active member</span>
+        ) : (
+          <span className="not-member-badge">NOT A MEMBER</span>
+        )}
+      </div>
+      <div className="buttons-cont">
         {mission.joined === true ? (
           <button
             onClick={handleLeaveMission}
             id={mission.mission_id}
             type="button"
+            className="leave-btn"
           >
             Leave Mission
           </button>
@@ -66,6 +70,7 @@ const Mission = ({ mission }) => {
             onClick={handleJoinMission}
             id={mission.mission_id}
             type="button"
+            className="join-btn"
           >
             Join Mission
           </button>
