@@ -3,17 +3,28 @@ nav {
   display: flex;
   justify-content: space-between;
   border-bottom: 2px solid lightgray;
-  width: 80%;
-  margin-left: 10%;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.logo-cont {
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+}
+
+.logo {
+  background-color: red;
 }
 
 h1 {
   display: inline;
-  margin: 0;
+  margin: 0 0 0 20px;
 }
 
 .links-cont {
   padding-top: var(--five);
+  margin-right: 5%;
 }
 
 .links-cont :nth-child(2) {

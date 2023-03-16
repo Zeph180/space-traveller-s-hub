@@ -8,6 +8,7 @@ import {
   getMissionsAsync,
   missionsActions,
 } from '../redux/features/missions/missionsSlice';
+import './Missions.css';
 
 const Missions = () => {
   const { missions } = useSelector((state) => state.missions);
@@ -18,10 +19,14 @@ const Missions = () => {
   }, [dispatch]);
 
   return (
-    <section className="mission-sec">
-
+    <section className="missions-cont">
+      <article className="mission">
+        <h3 className="mission-header">Mission</h3>
+        <p className="desc-header">Description</p>
+        <p className="status-desc">Status</p>
+      </article>
       {missions.map((mission) => (
-        <div key={mission.mission_id}>
+        <>
           <Mission mission={mission} />
         </div>
       ))}
@@ -43,49 +48,38 @@ const Mission = ({ mission }) => {
   };
 
   return (
-    <Table>
-      <thead>
-        <tr>
-          <th>Mission</th>
-          <th>Description</th>
-          <th>Status</th>
-          <th> </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><p className="description">{mission.description}</p></td>
-          <td>
-            {mission.joined === true ? (
-              <span className="member">Active member</span>
-            ) : (
-              <span className="no-member">Not a member</span>
-            )}
-          </td>
-          <td>
-            {mission.joined === true ? (
-              <button
-                onClick={handleLeaveMission}
-                id={mission.mission_id}
-                type="button"
-                className="leave-btn"
-              >
-                Leave Mission
-              </button>
-            ) : (
-              <button
-                onClick={handleJoinMission}
-                id={mission.mission_id}
-                type="button"
-                className="join-btn"
-              >
-                Join Mission
-              </button>
-            )}
-          </td>
-        </tr>
-      </tbody>
-    </Table>
+    <article className="mission">
+      <h3>{mission.mission_name}</h3>
+      <p className="mission-desc">{mission.description}</p>
+      <div className="members-cont">
+        {mission.joined === true ? (
+          <span className="member-badge">Active member</span>
+        ) : (
+          <span className="not-member-badge">NOT A MEMBER</span>
+        )}
+      </div>
+      <div className="buttons-cont">
+        {mission.joined === true ? (
+          <button
+            onClick={handleLeaveMission}
+            id={mission.mission_id}
+            type="button"
+            className="leave-btn"
+          >
+            Leave Mission
+          </button>
+        ) : (
+          <button
+            onClick={handleJoinMission}
+            id={mission.mission_id}
+            type="button"
+            className="join-btn"
+          >
+            Join Mission
+          </button>
+        )}
+      </div>
+    </article>
   );
 };
 

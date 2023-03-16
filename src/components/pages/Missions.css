@@ -1,0 +1,97 @@
+.missions-cont {
+  margin-top: var(--tenPx);
+  background-color: white;
+}
+
+.missions-cont > :nth-child(even) {
+  background-color: lightgray;
+}
+.mission-header {
+  box-sizing: border-box;
+  width: 15.3%;
+}
+
+.desc-header {
+  font-size: 16px;
+  font-weight: bold;
+  box-sizing: border-box;
+  width: 60%;
+  margin: var(--zero);
+  padding: var(--five);
+}
+
+.status-desc {
+  width: 10.85%;
+  margin: var(--zero);
+  padding: var(--five);
+}
+
+.mission {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-left: 10%;
+  border: 1px solid lightgray;
+}
+
+.mission > * {
+  border-right: 1px solid gray;
+}
+
+h3 {
+  width: 15%;
+  margin: var(--zero);
+  padding-left: var(--five);
+}
+
+.mission-desc {
+  width: 60%;
+  margin: var(--zero);
+  padding: var(--five);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.members-cont {
+  width: 12%;
+}
+
+.buttons-cont {
+  width: 13%;
+}
+
+.buttons-cont, .members-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.join-btn , .leave-btn{
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.leave-btn {
+  color: red;
+  border-color: red;
+}
+
+.member-badge, .not-member-badge {
+  color: var(--white);
+  padding: var(--zero) 3px;
+  border-radius: var(--five);
+}
+
+.member-badge {
+  background-color: var(--blue);
+}
+
+.not-member-badge {
+  background-color: gray;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: bold;
+}

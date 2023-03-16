@@ -4,6 +4,7 @@
   --white: #fff;
   --five: 5px;
   --tenPx: 10px;
+  /* --lightGrey: gray, */
 }
 
 .rockets-sec {
@@ -38,6 +39,8 @@
 
 .rocket-desc {
   margin: 10px var(--zero);
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .badge {
