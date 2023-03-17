@@ -1,25 +1,49 @@
-import { createSlice } from '@reduxjs/toolkit';
+/* eslint-disable camelcase */
+/* eslint-disable no-param-reassign */
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
+const missionsUrl = 'https://api.spacexdata.com/v3/missions';
+export const getMissionsAsync = createAsyncThunk(
+  'mission/getMissions',
+  async () => {
+    const resp = await axios.get(missionsUrl);
+    const results = resp.data.map(({ mission_id, mission_name, description }) => ({
+      mission_id,
+      mission_name,
+      description,
+    }));
+    return results;
+  },
+);
 const missionsSlice = createSlice({
   name: 'missions',
-  initialState: [
-    { mission: 'Project mars', projectDec: 'Travel to mars', id: '123' },
-    { mission: 'Project jupter', projectDesc: 'Go to jupter', id: '234' },
-  ],
+  initialState: {
+    missions: [],
+  },
   reducers: {
-    addMission: (state, actions) => {
-      const missionsData = actions.payload;
-      state.missions.push(missionsData);
+    joinMission: (state, actions) => {
+      const missionToJoin = actions.payload;
+      const newState = state.missions.map((mission) => {
+        if (mission.mission_id !== missionToJoin) return mission;
+        return { ...mission, joined: true };
+      });
+      return { ...state, missions: newState };
     },
-    cancelMission: (state, actions) => {
-      const tempState = state;
-      const missionToCancel = actions.payload;
-      tempState.missions = tempState.missions.filter(
-        (mission) => mission.id !== missionToCancel,
-      );
+    leaveMission: (state, actions) => {
+      const missionToLeave = actions.payload;
+      const newState = state.missions.map((mission) => {
+        if (mission.mission_id !== missionToLeave) return mission;
+        return { ...mission, joined: false };
+      });
+      return { ...state, missions: newState };
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(getMissionsAsync.fulfilled, (state, actions) => {
+      state.missions = actions.payload;
+    });
+  },
 });
-
 export const missionsActions = missionsSlice.actions;
 export default missionsSlice.reducer;
