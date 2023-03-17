@@ -1,0 +1,66 @@
+:root {
+  --blue: #1e90ff;
+  --zero: 0;
+  --white: #fff;
+  --five: 5px;
+  --tenPx: 10px;
+
+  /* --lightGrey: gray, */
+}
+
+.rockets-sec {
+  margin-top: var(--tenPx);
+}
+
+.rocket-cont {
+  margin-bottom: 20px;
+  width: 80%;
+  margin-left: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.img-cont {
+  width: 20%;
+}
+
+.rocket-img {
+  width: 100%;
+  height: auto;
+}
+
+.about-rocket-cont {
+  width: 80%;
+  padding: var(--zero) var(--tenPx);
+}
+
+.rocket-name {
+  margin: var(--zero);
+}
+
+.rocket-desc {
+  margin: 10px var(--zero);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.badge {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: var(--zero) var(--five);
+  margin-right: var(--tenPx);
+  border-radius: var(--five);
+}
+
+.reserve-btn {
+  background-color: var(--blue);
+  border: var(--blue);
+  color: var(--white);
+  padding: var(--five);
+  border-radius: var(--five);
+}
+
+.cancel-btn {
+  padding: var(--five);
+  border-radius: var(--five);
+}
