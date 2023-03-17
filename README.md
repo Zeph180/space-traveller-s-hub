@@ -1,11 +1,6 @@
-# To Do List with Webpack
+# Space Travelers Hub
 
 <a name="readme-top"></a>
-
-<div align="center">
-  <h3><b>Space Travelers Hub</b></h3>
-</div>
-
 # 📗Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -139,6 +134,7 @@ If you like this project, give it a ⭐️ and let us know what you like in part
 <!-- ACKNOWLEDGMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
 🙏 Acknowledgments
 
 I appreciate Microverse for providing the learning resources for this exercise.
